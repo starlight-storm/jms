@@ -19,5 +19,4 @@ public class AppConfig {
 	public Sender sender(JmsTemplate jmsTemplate) {
 		return new Sender();
 	}
-	
 }
