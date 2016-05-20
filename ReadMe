@@ -1,3 +1,6 @@
+問題：TimeToLiveが設定されない
+解決：JmsListenerAnnotationBeanPostProcessorを自前で作成。詳細はサンプルコードを参照
+
 1) SpringBootをスタート。
 2) 以下のコマンドを投入。
 ・curl localhost:8080/send
