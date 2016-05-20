@@ -11,18 +11,17 @@ import config.AppConfig;
 import config.JmsConfig;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes={AppConfig.class, JmsConfig.class})
+@ContextConfiguration(classes = { AppConfig.class, JmsConfig.class })
 public class SenderTest {
 	@Autowired
-    ConfigurableApplicationContext context;
-	
+	ConfigurableApplicationContext context;
+
 	@Autowired
 	private Sender sender;
-	
+
 	@Test
 	public void testSend() throws Exception {
 		sender.send();
 		context.close();
 	}
-	
 }
