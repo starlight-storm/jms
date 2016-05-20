@@ -1,0 +1,8 @@
+1) SpringBootをスタート。
+2) 以下のコマンドを投入。
+・curl localhost:8080/send
+3) コンソールに以下が出力。
+---
+***** MessageReply:How are you?
+***** Sender:I am fine.
+***** exp:1463728802104

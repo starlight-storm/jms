@@ -15,20 +15,12 @@ public class Sender {
 	private JmsTemplate jmsTemplate;
 	
 	@RequestMapping(value = "/send")
-	void execute(@RequestParam String msg) throws Exception {
-		System.out.println("***** Msg: " + msg);
+	void execute() throws Exception {
 		send();
 	}
 	
 	public void send() throws Exception {
 		System.out.println("***** START send");
-		
-//		MessageCreator messageCreator = new MessageCreator() {
-//            public Message createMessage(Session session) throws JMSException {
-//                return (session).createTextMessage("How are you?");
-//            }
-//        };
-//		jmsTemplate.send("queue.foo", messageCreator);
 				
 		jmsTemplate.convertAndSend("queue.foo", "How are you?");
 		
