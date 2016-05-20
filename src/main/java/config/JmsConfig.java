@@ -27,41 +27,39 @@ public class JmsConfig {
 	public JmsListenerEndpointRegistry defaultJmsListenerEndpointRegistry() {
 		return new JmsListenerEndpointRegistry();
 	}
-	
+
 	@Bean
-	public ConnectionFactory connectionFactory(){
+	public ConnectionFactory connectionFactory() {
 		return new ActiveMQConnectionFactory("vm://embedded?broker.persistent=false");
 	}
-	
+
 	@Bean
-	public CachingConnectionFactory cachingConnectionFactory(){
+	public CachingConnectionFactory cachingConnectionFactory() {
 		CachingConnectionFactory f = new CachingConnectionFactory();
 		f.setTargetConnectionFactory(connectionFactory());
 		return f;
 	}
-	
+
 	@Bean
-	public JmsTemplate jmsTemplate(){
+	public JmsTemplate jmsTemplate() {
 		JmsTemplate template = new JmsTemplate(cachingConnectionFactory());
 		return template;
 	}
-	
+
 	@Bean
 	public Destination fooQueue() {
 		return new ActiveMQQueue("queue.foo");
 	}
-	
+
 	@Bean
 	public Destination barQueue() {
 		return new ActiveMQQueue("queue.bar");
 	}
-	
-    @Bean
-    public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() {
-        DefaultJmsListenerContainerFactory factory =
-                new DefaultJmsListenerContainerFactory();
-        factory.setConnectionFactory(connectionFactory());
-        return factory;
-    }		
-		
+
+	@Bean
+	public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() {
+		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
+		factory.setConnectionFactory(connectionFactory());
+		return factory;
+	}
 }

@@ -14,7 +14,7 @@ public class AppConfig {
 	public MessageReply messageReply() {
 		return new MessageReply();
 	}
-	
+
 	@Bean
 	public Sender sender(JmsTemplate jmsTemplate) {
 		return new Sender();

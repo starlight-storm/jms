@@ -16,16 +16,11 @@ public class MyMessagingMessageListenerAdapter extends MessagingMessageListenerA
 		MessageProducer producer = session.createProducer(destination);
 		try {
 			postProcessProducer(producer, response);
-			//producer.send(response);
+			// producer.send(response);
 			System.out.println("##### sendResponse");
-			producer.send(response, producer.getDeliveryMode(), producer.getPriority(), 5000);			
-		}
-		finally {
+			producer.send(response, producer.getDeliveryMode(), producer.getPriority(), 5000);
+		} finally {
 			JmsUtils.closeMessageProducer(producer);
 		}
 	}
-
-	
-	
-	
 }
