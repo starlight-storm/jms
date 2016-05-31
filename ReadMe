@@ -1,5 +1,6 @@
 問題：TimeToLiveが設定されない
 解決：JmsListenerAnnotationBeanPostProcessorを自前で作成。詳細はサンプルコードを参照
+関連：SPR-13774　Allow for setting TTL on a response sent by @JmsListener
 
 1) SpringBootをスタート。
 2) 以下のコマンドを投入。
